@@ -1,0 +1,66 @@
+{
+  "website_title": "1st Workshop on Robust Machine Intelligence for Factory Automation",
+  "date": "21st August 2025",
+  "venue": "xxxx, as part of 2025 IEEE CASE Conference Programme, LA, US",
+  "workshop_overview": "The workshop on Robust Machine Intelligence for Factory Automation brings together researchers and practitioners from machine learning and automation domains to address a critical challenge: developing trustworthy machine learning technologies for mission-critical factory operations. As manufacturing environments become increasingly complex and dynamic, there is an urgent need to bridge the gap between cutting-edge AI advancements and practical industrial applications. Our primary objective is to catalyze a collaborative dialogue that sparks innovative approaches to machine intelligence in factory automation. By creating a platform for cross-disciplinary knowledge exchange, we aim to:\n\n· Highlight research challenges in designing AI systems for industrial settings\n· Explore emerging methodologies for robust and adaptive intelligent systems\n· Develop a shared vision for future research and development\n\nThrough a diverse range of interactive sessions—including expert talks, lightning presentations, and facilitated discussions—we will collectively chart a roadmap for transforming factory operations. The workshop seeks to reimagine production systems as more intelligent, responsive, and human-centric, capable of meeting the complex technological and societal demands of the future. Ultimately, we aspire to accelerate the development of machine learning technologies that can navigate the unprecedented challenges of modern factory environments, paving the way for more sustainable, resilient, and innovative manufacturing ecosystems.",
+  "why_needed": "Machine learning is significantly transforming not only how we live but also how we create. Factories, traditionally perceived as dangerous, dirty, and dull environments, are now facing unprecedented opportunities. Physical sensors, machines, factory automation systems, and production networks all stand to benefit from the unique capabilities of advanced machine learning techniques. This integration will enable future factories to develop autonomous sensing, reasoning, memory, and collaboration capabilities—allowing them to produce in more sustainable, resilient, and human-friendly ways. This vision will fundamentally impact future jobs and tasks in manufacturing environments and reshape the form and human interaction mechanisms of factory machines and systems. However, the exact manifestation of these changes remains uncertain and requires imagination to fully envision. From the AI side, despite isolated breakthroughs in areas like generative AI and computer vision, we haven't yet witnessed strong breakthroughs in physical AI or embodied intelligence. AI and machine learning algorithms operating in mission-critical factory environments—such as precision machines, industrial robots, and factory control systems—face significantly unique performance expectations. Currently, we are not discussing the adoption of existing AI advancements in factory automation; rather, we are at the preliminary stage of properly defining how physical AI should behave and to what expectations. Considering this critical juncture, we are organizing this workshop to share the latest developments in machine learning for factory automation through keynotes and lightning talks, showcase innovative ideas, and, most importantly, discuss future research agendas via facilitated roundtable discussions. This workshop is co-organized by IEEE TAS TC on Machine Learning for Automation, and TC on Digital Manufacturing and Human-Machine Interaction. This workshop offers a unique opportunity for machine learning experts to understand the state of the art in manufacturing—a quintessential example of automation systems—and for automation experts to learn about cutting-edge developments in machine learning. Crucially, we aim to raise collective awareness of future research priorities and requirements for trustworthy machine learning in factory automation.",
+  "format": {
+    "invited_talks": "Leading expert providing overview of the latest research trends in the area.",
+    "lightning_talks": "Short and fun sharing of technological advancements.",
+    "rapid_fire_talks": "Preview of exciting research projects to build connections.",
+    "tech_tasters": "Interactive conversation session with technology showcase (poster, physical prototype display, digital system demo etc.) including tea break arrangements.",
+    "facilitated_discussion": "Identify key challenges and opportunities in developing robust machine intelligence technologies towards factories of the future and outline potential collaborative initiatives."
+  },
+  "call_for_contributions": "We invite submissions to our workshop to join one of the sessions. Please fill in the Microsoft Office form provided.",
+  "call_for_contributions_link": {
+    "text": "Submit your proposal here",
+    "url": "https://example.com/submit"
+  },
+  "schedule": [
+    {
+      "speaker": "Speaker Name 1",
+      "talk_title": "Talk Title 1"
+    },
+    {
+      "speaker": "Speaker Name 2",
+      "talk_title": "Talk Title 2"
+    },
+    {
+      "speaker": "Speaker Name 3",
+      "talk_title": "Talk Title 3"
+    }
+  ],
+  "organizers": [
+    {
+      "name": "Yuqian Lu",
+      "position": "Senior Lecturer",
+      "university": "The University of Auckland",
+      "email": "yuqian.lu@auckland.ac.nz",
+      "photo": "assets/organizers/yuqian-lu.jpg"
+    },
+    {
+      "name": "Hyun-Jung Kim",
+      "position": "Associate Professor",
+      "university": "KAIST",
+      "email": "hyunjungkim@kaist.ac.kr",
+      "photo": "assets/organizers/hyun-jung-kim.jpg"
+    },
+    {
+      "name": "Bing Yan",
+      "position": "Assistant Professor",
+      "university": "Rochester Institute of Technology",
+      "email": "bxyeee@rit.edu",
+      "photo": "assets/organizers/bing-yan.jpg"
+    },
+    {
+      "name": "Ilya Kovalenko",
+      "position": "Professor",
+      "university": "Pennsylvania State University",
+      "email": "iqk5135@psu.edu",
+      "photo": "assets/organizers/ilya-kovalenko.jpg"
+    }
+  ],
+  "footer": {
+    "contact_email": "contact@yourworkshop.org"
+  }
+}
