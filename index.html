@@ -10,7 +10,6 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS styles remain unchanged */
         * {
             box-sizing: border-box;
         }
@@ -67,6 +66,19 @@
             padding-left: 10px;
         }
 
+        /* Paragraphs styling */
+        .section-paragraph {
+            margin-bottom: 1em;
+            text-align: justify;
+        }
+
+        /* Bullet list styling */
+        .section-bullets {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        /* Format list */
         ul {
             list-style: disc;
             padding-left: 20px;
@@ -76,7 +88,7 @@
             margin-bottom: 10px;
         }
 
-        /* Modern schedule list cards */
+        /* Schedule list cards */
         #schedule-list li {
             background: #e7f1fa;
             padding: 10px;
@@ -84,7 +96,6 @@
             margin-bottom: 10px;
         }
 
-        /* Styling for schedule speaker and talk title */
         .speaker {
             font-weight: bold;
             margin-bottom: 5px;
@@ -136,7 +147,7 @@
             padding-top: 10px;
         }
 
-        /* Override justification for organizer section */
+        /* Ensure organizer section details are centered */
         #organizers {
             text-align: center;
         }
@@ -151,16 +162,20 @@
             <p id="workshop-venue"></p>
         </header>
 
+        <!-- Workshop Overview Section -->
         <section id="overview">
             <h2>Workshop Overview</h2>
-            <p id="overview-text">Loading overview...</p>
+            <div id="overview-paragraphs"></div>
         </section>
 
+        <!-- Why Needed Section -->
         <section id="why-needed">
-            <h2>Why this workshop is needed</h2>
-            <p id="why-needed-text">Loading details...</p>
+            <h2>Why This Workshop Is Needed</h2>
+            <div id="why-needed-paragraphs"></div>
+            <ul id="why-needed-bullets" class="section-bullets"></ul>
         </section>
 
+        <!-- Format Section -->
         <section id="format">
             <h2>Format</h2>
             <ul id="format-list">
@@ -168,12 +183,14 @@
             </ul>
         </section>
 
+        <!-- Call for Contributions Section -->
         <section id="call-for-contributions">
             <h2>Call for Contributions</h2>
             <p id="call-for-contributions-text">Loading submission details...</p>
             <p id="call-for-contributions-link"></p>
         </section>
 
+        <!-- Schedule Section -->
         <section id="schedule">
             <h2>Schedule</h2>
             <ul id="schedule-list">
@@ -181,6 +198,7 @@
             </ul>
         </section>
 
+        <!-- Organizers Section -->
         <section id="organizers">
             <h2>Organizers</h2>
             <div id="organizers-list">
@@ -206,13 +224,56 @@
                 document.getElementById('workshop-date').textContent = data.date;
                 document.getElementById('workshop-venue').textContent = data.venue;
 
-                // Overview
-                document.getElementById('overview-text').textContent = data.workshop_overview;
+                // Workshop Overview: Render paragraphs with bullet list inserted after the first paragraph
+                const overviewContainer = document.getElementById('overview-paragraphs');
+                const overviewData = data.workshop_overview;
+                if (overviewData.paragraphs.length > 0) {
+                    // Append remaining paragraphs (if any)
+                    for (let i = 0; i < overviewData.paragraphs.length; i++) {
+                        if (overviewData.bullets && overviewData.bullets.length > 0 && i === data.workshop_overview.bullets_index) {
+                            const bulletList = document.createElement('ul');
+                            bulletList.className = 'section-bullets';
+                            overviewData.bullets.forEach(item => {
+                                const li = document.createElement('li');
+                                li.textContent = item;
+                                bulletList.appendChild(li);
+                            });
+                            overviewContainer.appendChild(bulletList);
+                        }
+                        const p = document.createElement('p');
+                        p.className = 'section-paragraph';
+                        p.textContent = overviewData.paragraphs[i];
+                        overviewContainer.appendChild(p);
+                    }
+                } else if (overviewData.bullets && overviewData.bullets.length > 0) {
+                    const bulletList = document.createElement('ul');
+                    bulletList.className = 'section-bullets';
+                    overviewData.bullets.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        bulletList.appendChild(li);
+                    });
+                    overviewContainer.appendChild(bulletList);
+                }
 
-                // Why Needed
-                document.getElementById('why-needed-text').textContent = data.why_needed;
+                // Why Needed Section
+                const whyNeededContainer = document.getElementById('why-needed-paragraphs');
+                data.why_needed.paragraphs.forEach(text => {
+                    const p = document.createElement('p');
+                    p.className = 'section-paragraph';
+                    p.textContent = text;
+                    whyNeededContainer.appendChild(p);
+                });
+                if (data.why_needed.bullets && data.why_needed.bullets.length > 0) {
+                    const whyNeededBullets = document.getElementById('why-needed-bullets');
+                    data.why_needed.bullets.forEach(item => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        whyNeededBullets.appendChild(li);
+                    });
+                }
 
-                // Format: bullet points with bold labels
+                // Format Section
                 const formatList = document.getElementById('format-list');
                 for (const [key, value] of Object.entries(data.format)) {
                     const li = document.createElement('li');
@@ -221,7 +282,7 @@
                     formatList.appendChild(li);
                 }
 
-                // Call for Contributions
+                // Call for Contributions Section
                 document.getElementById('call-for-contributions-text').textContent = data.call_for_contributions;
                 const contributionsLink = document.getElementById('call-for-contributions-link');
                 const link = document.createElement('a');
@@ -230,7 +291,7 @@
                 link.style.color = "#007acc";
                 contributionsLink.appendChild(link);
 
-                // Schedule: separate rows for speaker and talk title
+                // Schedule Section: Separate rows for speaker and talk title
                 const scheduleList = document.getElementById('schedule-list');
                 data.schedule.forEach(item => {
                     const li = document.createElement('li');
@@ -238,7 +299,7 @@
                     scheduleList.appendChild(li);
                 });
 
-                // Organizers
+                // Organizers Section
                 const organizersDiv = document.getElementById('organizers-list');
                 data.organizers.forEach(org => {
                     const div = document.createElement('div');
